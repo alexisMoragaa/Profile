@@ -12,6 +12,7 @@ export default function  App (props){
                 <Layout>
 
                     <Switch>
+                        <Route exact path='/' component={Home}/>
                         <Route exact path='/home' component={Home}/>
                     </Switch>
                     
