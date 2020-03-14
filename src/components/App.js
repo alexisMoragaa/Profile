@@ -13,6 +13,7 @@ export default function  App (props){
 
                     <Switch>
                         <Route exact path='/' component={Home}/>
+                        <Route exact path='/Profile' component={Home}/>
                         <Route exact path='/home' component={Home}/>
                     </Switch>
                     
