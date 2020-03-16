@@ -2,52 +2,58 @@ import React from 'react'
 import {  Link } from 'react-router-dom'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faBars, faHome, faBriefcase, faStickyNote, faSuitcase, faCogs, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
-
+import { faUser, faBars, faHome, faBriefcase, faStickyNote, faSuitcase, faCogs, faPaperPlane, faUserGraduate } from '@fortawesome/free-solid-svg-icons'
+import $ from 'jquery'
+import jQuery from 'jquery'
 
 export default function Navbar() {
+
+
     return (
         <nav id="sidebar">
-			<div class="custom-menu">
-				<button type="button" id="sidebarCollapse" class="btn btn-primary">
+			<div className="custom-menu">
+				<button type="button" id="sidebarCollapse" className="btn btn-primary">
 					<i > <FontAwesomeIcon icon={faBars}/> </i>
-					<span class="sr-only">Toggle Menu</span>
+					<span className="sr-only">Toggle Menu</span>
                    
 				</button>
 			</div>
-			<div class="p-4">
-				<h1><a href="index.html" class="logo">Amoraga <span>Website</span></a></h1>
-				<ul class="list-unstyled components mb-5">
-					<li className="active">
+			<div className="p-4">
+
+				<h1><Link to='/' className="logo">Amoraga <span>Website</span></Link></h1>
+
+				<ul className="list-unstyled components mb-5">
 					
+					<li className="active">
                        <Link to="/home" ><FontAwesomeIcon icon={faHome} className="mr-3"/> Home</Link>
+					</li>
+					
+					<li className="activeLink">
+						<Link to="/hobbies"><FontAwesomeIcon icon={faUser} className="mr-3"  /> Hobbies</Link>
+					</li>
                        
+					<li className="activeLink">
+						<Link to="/"><FontAwesomeIcon icon={faUserGraduate} className="mr-3" /> Formación</Link>
 					</li>
 					<li>
-						<a href="#"><FontAwesomeIcon icon={faUser} className="mr-3"  /> About</a>
+						<Link to="/"><FontAwesomeIcon icon={faStickyNote} className="mr-3"/> Trabajo</Link>
 					</li>
 					<li>
-						<a href="#"><FontAwesomeIcon icon={faBriefcase} className="mr-3" /> Works</a>
+						<Link to="/"><FontAwesomeIcon icon={faSuitcase} className="mr-3" /> Gallery</Link>
 					</li>
 					<li>
-						<a href="#"><FontAwesomeIcon icon={faStickyNote} className="mr-3"/> Blog</a>
+						<Link to="/"><FontAwesomeIcon icon={faCogs} className="mr-3" /> Services</Link>
 					</li>
 					<li>
-						<a href="#"><FontAwesomeIcon icon={faSuitcase} className="mr-3" /> Gallery</a>
-					</li>
-					<li>
-						<a href="#"><FontAwesomeIcon icon={faCogs} className="mr-3" /> Services</a>
-					</li>
-					<li>
-						<a href="#"><FontAwesomeIcon icon={faPaperPlane}  className="mr-3"/> Contacts</a>
+						<Link to="/"><FontAwesomeIcon icon={faPaperPlane}  className="mr-3"/> Contacts</Link>
 					</li>
 				</ul>
 
 
 
-				<div class="footer">
+				<div className="footer">
 					<p>
-	
+						
 					</p>
 				</div>
 
