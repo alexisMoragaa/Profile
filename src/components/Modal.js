@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDom from 'react-dom'
+import {Button, Modal} from 'react-bootstrap'
+// import './styles/Modal.css'
 
-import './styles/Modal.css'
-
-export default function Modal(props){
+export default function Modal_(props){
     if(props.isOpen === false){
         return null;
     }
@@ -12,13 +12,22 @@ export default function Modal(props){
 
     return(
         ReactDom.createPortal(
-            <div className="Modal">
-                <div className="Modal__container">
-                    <button onClick={props.onClose} className="Modal__close-button">X</button>
+ 
 
+
+            <Modal show={props.isOpen} onHide={props.onClose} size='lg' aria-labelledby="contained-modal-title-vcenter"  centered>
+ 
+
+                <Modal.Body>
                     {props.children}
-                </div>
-            </div>
+                </Modal.Body>
+
+               
+            </Modal>
+
+
+
+
         ,document.getElementById('portalModal'))
     )
 }
