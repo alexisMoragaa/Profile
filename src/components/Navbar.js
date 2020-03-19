@@ -20,16 +20,16 @@ export default function Navbar() {
 			</div>
 			<div className="p-4">
 
-				<h1><Link to='/' className="logo">Amoraga <span>Website</span></Link></h1>
+				<h1><Link to='/Profile/Home' className="logo">Amoraga <span>Website</span></Link></h1>
 
 				<ul className="list-unstyled components mb-5">
 					
 					<li className="active">
-                       <Link to="/home" ><FontAwesomeIcon icon={faHome} className="mr-3"/> Home</Link>
+                       <Link to="/Profile/Home" ><FontAwesomeIcon icon={faHome} className="mr-3"/> Home</Link>
 					</li>
 					
 					<li className="activeLink">
-						<Link to="/hobbies"><FontAwesomeIcon icon={faUser} className="mr-3"  /> Hobbies</Link>
+						<Link to="/Profile/Hobbies"><FontAwesomeIcon icon={faUser} className="mr-3"  /> Hobbies</Link>
 					</li>
                        
 					<li className="activeLink">
