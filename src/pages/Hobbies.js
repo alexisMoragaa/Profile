@@ -1,6 +1,8 @@
 import React from 'react'
 import CardHobbie from '../components/CardHobbie';
 import HobbieModal from '../components/HobbieModal'
+import { BoxLoading } from 'react-loadingg';
+
 
 import Typed from 'react-typed'
 
@@ -15,56 +17,50 @@ class Hobbies extends React.Component{
         hobbies:[],
         gallery:[{}],
 
-    }
-
-  
+    }// establecemos el state del componente
 
 
-     openModal = () => {
+
+     openModal = () => {//creamos una funcion para abrir nuestro modal
         this.setState({modalIsOpen:true})
     }
 
-    closeModal = () => {
+    closeModal = () => {//creamos una funcion para cerrar nuestro modal
         this.setState({modalIsOpen:false})
     }
 
-
-    search = (e) => {
     
-         console.log(e.target.id)   
+    search = (e) => {// creamos una funcion de busqueda, esta funcion buscara dentro del state el hobbie que corresponda al id que recibe como parametro 
         const hobbie = this.state.hobbies.filter(hobbie => {
             return `${hobbie.idHobbie}`.includes(e.target.id)
         })
         this.setState({hobbieSelect:hobbie[0],modalIsOpen:true });
-        
-    this.fetchGallery(e.target.id);
+        this.fetchGallery(e.target.id);
+        //Ademas de buscar el hobbie lo insertamos en el estado hobbie select y realizamos una llamada a fetchGallery, la cual nos traera las imagenes del hobbie
     }
 
-
-
-
-    fetchGallery = async (id) => {
-
+    
+    fetchGallery = async (id) => {//fetchGellery realiza una peticion al api de imagenes, y esta responde con las imagenes correspondientes al id enviado
+        
         this.setState({loadingModal:true, error:null});
-
+        
         try{
-
             const response = await fetch(`http://localhost:8080/image/images?idGallery=${id}`)
             const res =  await response.json();
             this.setState({loadingModal:false, gallery:res})
         }catch(error){
             this.setState({loadingModal:false, error:error});
         }
-  
+        // Ademas de esto insertamos el resultado de la llamada en el estado gallery
     }
 
 
-    componentDidMount(){
+    componentDidMount(){//usamos el componenteDidMount para llamar a la funcion fetchhobbies, esta funcion esta encargada de traer los hobbies desde la api
         this.fetchHobbies()
     }
 
 
-    fetchHobbies = async () =>{
+    fetchHobbies = async () =>{//esta funcion realiza una llamada asincrona al api de hobbies y retorna todos los resultados
 
         this.setState({loading:true, error:null});
 
@@ -76,7 +72,7 @@ class Hobbies extends React.Component{
         }catch(error){
             this.setState({loading:false, error:error});
         }
-
+        //Ademas de esto introduce el resultado de la llamada en el estado Hobbies
     }
 
 
@@ -85,8 +81,8 @@ class Hobbies extends React.Component{
     render(){
         if(this.state.loading){
             
-            return (<p>Loading...</p>)
-        }
+            return (<BoxLoading />)
+        }//validamos si el loading de nuestro estado se encuetra en true como resultado de alguna llamada y mostramos un loading
         return(
             <React.Fragment>
 
@@ -109,6 +105,13 @@ class Hobbies extends React.Component{
                     /> 
                 </h1>
 
+
+
+                {this.state.loadinModal &&(
+                    <BoxLoading />
+                )}
+
+
                 <div className="row mt-5">
                     {this.state.hobbies.map((hobbie) => {
                         return(
@@ -129,7 +132,7 @@ class Hobbies extends React.Component{
 
                 </div>
 
-                <hr/>
+                
 
 
 

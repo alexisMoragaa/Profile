@@ -9,6 +9,7 @@ import $ from 'jquery'
 import jQuery from 'jquery'
 import Popper from 'popper.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './assets/css/now-ui-kit.min.css';
 
 
 import App from './components/App'
