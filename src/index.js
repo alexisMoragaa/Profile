@@ -10,6 +10,7 @@ import jQuery from 'jquery'
 import Popper from 'popper.js'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/css/now-ui-kit.min.css';
+// import './assets/plugins/jasny-bootstrap.min.js';
 
 
 import App from './components/App'
