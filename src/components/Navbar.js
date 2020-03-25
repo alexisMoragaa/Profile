@@ -33,7 +33,7 @@ export default function Navbar() {
 					</li>
                        
 					<li className="activeLink">
-						<Link to="/"><FontAwesomeIcon icon={faUserGraduate} className="mr-3" /> Formación</Link>
+						<Link to="/Profile/Blog/New"><FontAwesomeIcon icon={faUserGraduate} className="mr-3" /> Blog</Link>
 					</li>
 					<li>
 						<Link to="/"><FontAwesomeIcon icon={faStickyNote} className="mr-3"/> Trabajo</Link>
